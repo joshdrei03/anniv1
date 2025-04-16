@@ -37,7 +37,7 @@ const pages = [
   },
   {
     title: "Josh's 19th Birthday",
-    image: "_MG_4414.jpeg",
+    image: "venom.jpeg",
     subtitle: "Vodka Nights!",
     description: "Remember love inalagaan din kita here lol. Super nag eenjoy ako kasama ka when going to bars and club kasi pag wala ka ikaw lang hinahanap ko. To more birthdays we celebrate together love^^."
   },
