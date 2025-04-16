@@ -1,6 +1,6 @@
 const pages = [
   {
-    title: "Happy Second Anniversary, My Love!",
+    title: "Happy Second Anniversary, My Love! (P.S. Turn landscape when using Mobile)",
     image: "JoKFJuqqbVaL.jpg",
     subtitle: "1st Anniversary!",
     description: "Tara love, let's go back down memory lane ng 2nd chapter natin.\n\nPic na tayo marami for Chapter 3 please mwehehehe para marami malagay^^"
