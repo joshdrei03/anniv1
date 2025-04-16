@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enter Passcode</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Basic Styling for the Passcode Page */
+    body {
+      font-family: 'Quicksand', sans-serif;
+      margin: 0;
+      color: #4a1c2a;
+      display: flex; /* Use flexbox for centering */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      min-height: 100vh; /* Full viewport height */
+      background-color: rgba(255, 248, 220, 0.8);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .pin-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem; /* Add some padding */
+      background-color: rgba(255, 248, 220, 0.9); /* Slightly opaque background */
+      text-align: center;
+      border-radius: 15px; /* Rounded corners */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      max-width: 350px; /* Max width for the container */
+      width: 90%; /* Responsive width */
+    }
+
+    .pin-page h1 {
+      font-family: 'Quicksand', sans-serif; /* Consistent font */
+      font-size: 2rem; /* Adjusted size */
+      color: #5c4033; /* Dark brown color */
+      margin-bottom: 1.5rem; /* Increased bottom margin */
+    }
+
+    .pin-page input {
+      padding: 0.75rem; /* More padding */
+      font-size: 1.1rem;
+      border-radius: 10px;
+      border: 1px solid #a0522d; /* Saddle brown border */
+      margin-bottom: 1rem;
+      width: 100%; /* Full width within container */
+      box-sizing: border-box; /* Include padding in width */
+      text-align: center; /* Center placeholder text */
+    }
+
+    .pin-page button {
+      padding: 0.75rem 2rem; /* Larger padding */
+      font-size: 1rem;
+      font-weight: 600; /* Bolder text */
+      background-color: #a0522d; /* Saddle brown background */
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* Smooth hover transition */
+    }
+
+    .pin-page button:hover {
+      background-color: #8b4513; /* Darker brown on hover */
+    }
+
+    #pin-message {
+        margin-top: 1rem; /* Space above the message */
+        font-size: 0.9rem; /* Slightly smaller font */
+        min-height: 1.2em; /* Reserve space to prevent layout shift */
+    }
+
+  </style>
+</head>
+<body>
+  <div class="pin-page" id="pin-page">
+    <h1>Enter PIN</h1>
+    <input type="password" id="pin-input" placeholder="Enter PIN" maxlength="8">
+    <button onclick="checkPin()">Unlock</button>
+    <p id="pin-message" style="color: red;"></p> </div>
+
+  <script>
+    function checkPin() {
+      const pinInput = document.getElementById("pin-input");
+      const message = document.getElementById("pin-message");
+      const correctPin = "07312022"; // Define the correct PIN here
+
+      if (pinInput.value === correctPin) {
+        // Redirect to index1.html if the PIN is correct
+        window.location.href = "index1.html";
+      } else {
+        // Display an error message if the PIN is incorrect
+        message.textContent = "Incorrect PIN. Clue: Reto Date (MMDDYYYY)";
+        pinInput.value = ""; // Clear the input field
+        pinInput.focus(); // Set focus back to the input field
+      }
+    }
+
+    // Optional: Allow pressing Enter key to submit the PIN
+    document.getElementById("pin-input").addEventListener("keypress", function(event) {
+        // If the user presses the "Enter" key on the keyboard
+        if (event.key === "Enter") {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            checkPin();
+        }
+    });
+  </script>
+</body>
+</html>
